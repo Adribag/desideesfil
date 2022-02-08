@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/responsiv.css' %}">
+    <link rel="shortcut icon" href="{% static 'main/img/logo_photo.png' %}" type="image/x-icon">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <section class="navBar">
+        <h1>Des idées Fil</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Accueil</a>
+                </li>
+                <li>
+                    <a href="">Boutique</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+                <li>
+                    <a href="">Inscription</a>
+                </li>
+                <li>
+                    <a href="">Connexion</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    {% block content %}{% endblock content %}
+    <footer>
+        <ul>
+            <li>
+                <figure>
+                    <img src="{% static 'main/img/logo_photo.png' %}" alt="">
+                    <figcaption>
+                        <h2>Des Idées Fil</h2>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <ul>
+                    <li>
+                        <a href="">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="">Boutique</a>
+                    </li>
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>
+                        <a href="">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="">Instagram</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>
+                        <a href="">A propos</a>
+                    </li>
+                    <li>
+                        <a href="">Mentions Légales</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+{% block title %}Des Idées Fil - Accueil{% endblock title %}
+
+{% block content %}
+<header>
+    <figure>
+        <img src="{% static 'main/img/logo_photo.png' %}" alt="">
+        <figcaption>
+            <h2>Des Idées Fil</h2>
+        </figcaption>
+    </figure>
+    <ul>
+        <li>
+            <a href="">Facebook</a>
+        </li>
+        <li>
+            <a href="">Instagram</a>
+        </li>
+    </ul>
+</header>
+<section class="services">
+    <ul>
+        <li>
+            <a href="">Couture</a>
+        </li>
+        <li>
+            <a href="">Retouches</a>
+        </li>
+        <li>
+            <a href="">Créations</a>
+        </li>
+    </ul>
+</section>
+<section class="infos">
+    <div class="photo"></div>
+    <div class="description">
+        <h2>Bonjour et bienvenue !</h2>
+        <p>
+            En regardant ma mère coudre pour habiller ses quatre enfants, je n’aurais jamais pensé que la couture
+            deviendrait ma passion.<br /><br />
+            J’aime coudre, c’est comme ça !<br /><br />
+            Mes diplômes de coupe, couture et patronage en poche et après des années de pratique, c’est tout
+            naturellement qu’en 2020 j’ai décidé de créer mon entreprise.<br /><br />
+            Je vous propose mes créations bien sûr, mais aussi un service de couture, retouches et
+            ameublement.<br /><br />
+            Mon atelier est installé chez moi à Saint Georges des Groseillers mais je me déplace volontiers à votre
+            domicile pour prendre et rapporter votre couture.<br /><br />
+            N’hésitez pas à me contacter pour tous vos projets.<br /><br />
+            A bientôt,<br /><br />
+            Véronique<br /><br />
+
+        </p>
+    </div>
+</section>
+<section class="deplacements">
+    <h2>Déplacements</h2>
+    <p>
+        Je me déplace à votre domicile dans un rayon de 15km
+    </p>
+</section>
+<section class="map">
+    <div>
+        <h2>L'atelier</h2>
+        <p>Vous pouvez trouver l'atelier à cette adresse</p>
+    </div>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.2614810813425!2d-0.5622299846313891!3d48.75780267927775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a29aa7995fdd5%3A0x568d0ae886001eec!2s41%20Rue%20Andr%C3%A9%20L%C3%A9tard%2C%2061100%20Saint-Georges-des-Groseillers!5e0!3m2!1sfr!2sfr!4v1644243966860!5m2!1sfr!2sfr"
+        width="50%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="google"></iframe>
+</section>
+{% endblock content %}
