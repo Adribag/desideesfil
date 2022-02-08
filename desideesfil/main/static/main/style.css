@@ -7,7 +7,6 @@ h1{
     font-size:2rem;
 }
 .navBar{
-    display:block;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
