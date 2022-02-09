@@ -6,3 +6,9 @@ def index(request):
         'title': "Home",
     }
     return render(request, 'main/index.html', context)
+
+def contact(request):
+    context = {
+        'title': "Contact",
+    }
+    return render(request, 'main/contact.html', context)

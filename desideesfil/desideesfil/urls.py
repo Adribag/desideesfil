@@ -21,6 +21,6 @@ from shop import views as shop_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', main_views.index, name='index'),
-    path("", include("main.urls", namespace='index')),
+    path("", include("main.urls", namespace='main')),
     path("", include("shop.urls", namespace='shop')),
 ]
