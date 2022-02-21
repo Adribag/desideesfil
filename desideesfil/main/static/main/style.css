@@ -1,3 +1,7 @@
+@font-face{
+    font-family: "Trumpit";
+    src: url("/font/Trumpit.otf") format("otf");
+   }
 body{
     background-color: #D5E4EC;
     margin: 0;
@@ -5,6 +9,7 @@ body{
 }
 h1{
     font-size:2rem;
+    font-family: "Trumpit", Arial, Helvetica, sans-serif;
 }
 .navBar{
     display:flex;
@@ -55,6 +60,8 @@ header figure img{
 }
 header figure figcaption h2{
     text-align: center;
+    font-family: "Trumpit", Arial, Helvetica, sans-serif;
+    font-size: 3rem;
 }
 header ul{
     display:flex;
@@ -90,7 +97,7 @@ header a{
     background-color: #EFA7A7;
     text-decoration: none;
     padding: 2rem;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.61);
     font-weight: bold;
 }
@@ -155,6 +162,9 @@ footer{
     background-color: #271C35;
     color: #D5E4EC;
 }
+footer h2{
+    font-family: "Trumpit", Arial, Helvetica, sans-serif;
+}
 footer ul{
     display:flex;
     flex-direction: row;
@@ -188,4 +198,122 @@ footer a{
 footer a:hover{
     color: #EFA7A7;
     text-decoration: underline;
+}
+/* INSCRIPTION */
+.inscriptionTitle{
+    text-align: center;
+    margin: 3rem 0;
+}
+.inscription{
+    width: 40%;
+    margin: 5rem auto;
+    background-color: #7A688D;
+    padding:2rem;
+    border-radius:10px;
+    color: #D5E4EC;
+}
+.inscription p{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin:2rem 0;
+}
+.inscription ul{
+    padding: 0;
+}
+.inscription ul li{
+    list-style-type: none;
+    text-align: center;
+    color:#EFA7A7;
+}
+.inscription p input{
+    margin: 1rem 0;
+    background-color: #7A688D;
+    padding: 0.5rem;
+    border: none;
+    border-radius:10px;
+    border-bottom: 4px solid #D5E4EC;
+    text-align:center;
+    color: #D5E4EC;
+    box-shadow:0px 15px 21px -6px rgba(0,0,0,0.4);
+    transition: box-shadow 1s;
+}
+.inscription p input:focus{
+    outline: none;
+    border-bottom: 4px solid #EFA7A7;
+    box-shadow:0px 15px 21px -6px rgba(0,0,0,0);
+}
+.inscription p label{
+    text-align: left;
+    color: #D5E4EC;
+}
+.inscription p span{
+    color:#EFA7A7;
+}
+.inscription button{
+    display: block;
+    margin: 0 auto; 
+    padding: 1rem;
+    border-radius:10px;
+    background-color:#EFA7A7;
+    color: #7A688D;
+    font-weight:bold;
+}
+/* CONNECTION */
+.connexionTitle{
+    text-align: center;
+    margin: 3rem 0;
+}
+/* PROFIL */
+.profilTitle{
+    text-align: center;
+    margin: 4rem 0;
+}
+.compte{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.informationsCompte{
+    background-color:#FFFFFF;
+    padding: 2rem;
+    width: 45%;
+}
+.informationsCompte p{
+    text-align: center;
+}
+.livraisonInfos{
+    border-top: 1px solid #271C35;
+    border-bottom: 1px solid #271C35;
+}
+.modificationCompte{
+    width: 45%;
+    background-color: #7A688D;
+    padding: 2rem;
+}
+.modificationCompte{
+    text-align: center;
+}
+.modificationCompte ul{
+    padding:0;
+}
+.modificationCompte ul li {
+    list-style-type: none;
+    color: #D5E4EC;
+    border-bottom: 1px solid #271C35;
+    margin-top: 6rem;
+}
+.modificationCompte ul li p a{
+    display: block;
+    color: #EFA7A7;
+    text-decoration: none;
+    margin-top:1rem;
+}
+.modificationCompte ul li p a:hover{
+    text-decoration: underline;
+}
+.deleteTitle{
+    text-align: center;
 }

@@ -36,4 +36,8 @@
     footer ul{
         flex-direction: column;
     }
+    /* INSCRIPTION */
+    .inscription{
+        width: 80%;
+    }
 }

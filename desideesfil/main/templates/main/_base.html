@@ -18,20 +18,29 @@
         <nav>
             <ul>
                 <li>
-                    <a href="">Accueil</a>
+                    <a href="{% url 'main:index' %}">Accueil</a>
                 </li>
                 <li>
-                    <a href="">Boutique</a>
+                    <a href="{% url 'shop:shop' %}">Boutique</a>
                 </li>
                 <li>
-                    <a href="">Contact</a>
+                    <a href="{% url 'main:contact' %}">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'profile' %}">Profil</a>
                 </li>
                 <li>
-                    <a href="">Inscription</a>
+                    <a href="{% url 'logout' %}">Déconnexion</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'signup' %}">Inscription</a>
                 </li>
                 <li>
-                    <a href="">Connexion</a>
+                    <a href="{% url 'login' %}">Connexion</a>
                 </li>
+                {% endif %}
             </ul>
         </nav>
     </section>
