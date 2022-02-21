@@ -1,0 +1,12 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+{% block title %}Des Idées Fil - Inscription{% endblock title %}
+
+{% block content %}
+<h2 class="inscriptionTitle">Formulaire d'inscription</h2>
+<form action="" method="post" class="inscription">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">S'inscrire</button>
+</form>
+{% endblock content %}

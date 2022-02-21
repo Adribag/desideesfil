@@ -1,0 +1,112 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+{% block title %}Des Idées Fil - Profil{% endblock title %}
+
+{% block content %}
+<h2 class="profilTitle">Profil de {{ user.username }}</h2>
+{% if user.is_authenticated %}
+{% comment %} <p>Welcome, {{ user.username }}. Thanks for logging in.</p> {% endcomment %}
+
+<section class="compte">
+    <div class="informationsCompte">
+        <h4>Votre nom d'utilisateur : {{ user.username }}</h4>
+        <h4>Votre email : {{ user.email }}</h4>
+        <h4>
+            Votre prénom :
+            {% if user.first_name == "" %}
+            Information manquante
+            {% else %}
+            {{ user.first_name }}
+            {% endif %}
+        </h4>
+        <h4>
+            Votre nom :
+            {% if user.last_name == "" %}
+            Information manquante
+            {% else %}
+            {{ user.last_name }}
+            {% endif %}
+        </h4>
+        <div class="livraisonInfos">
+            <h3>Adresse de livraison</h3>
+            <h4>Rue</h4>
+            <p>
+                {% if address.delivery_address == "" %}
+                Information manquante
+                {% else %}
+                {{ address.delivery_address }}
+                {% endif %}
+            </p>
+            <h4>Code postal</h4>
+            <p>
+                {% if address.delivery_code == "" %}
+                Information manquante
+                {% else %}
+                {{ address.delivery_code }}
+                {% endif %}
+            </p>
+            <h4>Ville</h4>
+            <p>
+                {% if address.delivery_city == "" %}
+                Information manquante
+                {% else %}
+                {{ address.delivery_city }}
+                {% endif %}
+            </p>
+        </div>
+        <div class="facturationInfos">
+            <h3>Adresse de facturation</h3>
+            <h4>Rue</h4>
+            <p>
+                {% if address.billing_address == "" %}
+                Information manquante
+                {% else %}
+                {{ address.billing_address }}
+                {% endif %}
+            </p>
+            <h4>Code postal</h4>
+            <p>
+                {% if address.billing_code == "" %}
+                Information manquante
+                {% else %}
+                {{ address.billing_code }}
+                {% endif %}
+            </p>
+            <h4>Ville</h4>
+            <p>
+                {% if address.billing_city == "" %}
+                Information manquante
+                {% else %}
+                {{ address.billing_city }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <div class="modificationCompte">
+        <ul>
+            <li>
+                <p>
+                    Modification informations utilisateur
+                    <a href="{% url 'user' %}">Modifier</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Modification adresses
+                    <a href="{% url 'address' %}">Modifier</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Supprimer mon compte
+                    <a href="{% url 'delete' %}">Supprimer</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}
+{% endblock content %}
