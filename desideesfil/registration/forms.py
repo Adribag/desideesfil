@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from registration.models import User_address
+from registration.models import Address
 
 class SignupForm(UserCreationForm):
 
@@ -20,5 +20,5 @@ class UserFormUpdate(forms.ModelForm):
 class AddressForm(forms.ModelForm):
 
     class Meta:
-        model = User_address
-        fields = ['delivery_address', 'delivery_code', 'delivery_city', 'billing_address','billing_code','billing_city']
+        model = Address
+        fields = ['address', 'code', 'city']

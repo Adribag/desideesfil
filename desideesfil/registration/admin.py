@@ -1,5 +1,6 @@
 from django.contrib import admin
-from registration.models import User_address
+from registration.models import Address, AddressCategory
 # Register your models here.
 
-admin.site.register(User_address)
+admin.site.register(Address)
+admin.site.register(AddressCategory)
