@@ -199,6 +199,28 @@ footer a:hover{
     color: #EFA7A7;
     text-decoration: underline;
 }
+/* PRICES */
+.contentPrices{
+    margin: 5rem 0;
+}
+.pricesTitle{
+    text-align: center;
+}
+.prices{
+    padding: 0;
+}
+.prices li{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 0 5rem;
+    border-bottom: 1px solid #271C35;
+}
+/* CONTACT */
+.contactTitle{
+    text-align: center;
+    margin: 3rem 0;
+}
 /* INSCRIPTION */
 .inscriptionTitle{
     text-align: center;

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from registration.forms import SignupForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from registration.models import User_address
+# from registration.models import User_address
+from registration.models import Address, AddressCategory
 from registration.forms import AddressForm, UserFormUpdate
 from django.contrib.auth.decorators import login_required
 
@@ -19,8 +20,12 @@ def signup(request):
             user = authenticate(username = form.cleaned_data['username'],
                                 password = form.cleaned_data['password1'])
             login(request, user)
-            newAddress = User_address(delivery_address='', delivery_code=0, delivery_city='', billing_address='', billing_code=0, billing_city='', user_id=user.id)
-            newAddress.save()
+            newAddressCategoryDelivery = AddressCategory(id = 1)
+            newAddressCategoryBilling = AddressCategory(id = 2)
+            newAddressDelivery = Address(address='', code=0, city='', addressCategoryName=newAddressCategoryDelivery, user_id=user.id)
+            newAddressBilling = Address(address='', code=0, city='', addressCategoryName=newAddressCategoryBilling, user_id=user.id)
+            newAddressDelivery.save()
+            newAddressBilling.save()
             return redirect('/')
 
     context = {'form': form}
@@ -30,15 +35,19 @@ def signup(request):
 @login_required
 def profile(request):
     # user = User.objects.all()
+    userAddressDelivery = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 1)
+    userAddressBilling= Address.objects.get(user_id = request.user.id, addressCategoryName_id = 2)
     context = {
         'user':request.user,
-        'address':request.user.user_address
+        'addressDelivery':userAddressDelivery,
+        'addressBilling':userAddressBilling,
         }
     return render(request, 'registration/profile.html', context)
 
 
-def addressUpdate(request):
-    userAddress = User_address.objects.get(user = request.user.id)
+def addressUpdateDelivery(request):
+    # category = AddressCategory.objects.get(id = request.name.id)
+    userAddress = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 1 )
     if request.method == 'POST':
         formAddress = AddressForm(request.POST,instance=userAddress)
         if formAddress.is_valid():
@@ -47,7 +56,20 @@ def addressUpdate(request):
     else:
         formAddress = AddressForm(instance=userAddress)
 
-    return render(request, 'registration/address.html', {'form': formAddress})
+    return render(request, 'registration/deliveryAddress.html', {'form': formAddress})
+
+
+def addressUpdateBilling(request):
+    userAddress = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 2)
+    if request.method == 'POST':
+        formAddress = AddressForm(request.POST,instance=userAddress)
+        if formAddress.is_valid():
+            formAddress.save()
+            return redirect('profile')
+    else:
+        formAddress = AddressForm(instance=userAddress)
+
+    return render(request, 'registration/billingAddress.html', {'form': formAddress})
 
 
 def userUpdate(request):
@@ -64,6 +86,7 @@ def userUpdate(request):
         userUpdate = UserFormUpdate(instance=getUser)
 
     return render(request, 'registration/user.html', {'form': userUpdate})
+
 
 def userDelete(request):
 

@@ -31,26 +31,26 @@
             <h3>Adresse de livraison</h3>
             <h4>Rue</h4>
             <p>
-                {% if address.delivery_address == "" %}
+                {% if addressDelivery.address == "" %}
                 Information manquante
                 {% else %}
-                {{ address.delivery_address }}
+                {{ addressDelivery.address }}
                 {% endif %}
             </p>
             <h4>Code postal</h4>
             <p>
-                {% if address.delivery_code == "" %}
+                {% if addressDelivery.code == "" %}
                 Information manquante
                 {% else %}
-                {{ address.delivery_code }}
+                {{ addressDelivery.code }}
                 {% endif %}
             </p>
             <h4>Ville</h4>
             <p>
-                {% if address.delivery_city == "" %}
+                {% if addressDelivery.city == "" %}
                 Information manquante
                 {% else %}
-                {{ address.delivery_city }}
+                {{ addressDelivery.city }}
                 {% endif %}
             </p>
         </div>
@@ -58,26 +58,26 @@
             <h3>Adresse de facturation</h3>
             <h4>Rue</h4>
             <p>
-                {% if address.billing_address == "" %}
+                {% if addressBilling.address == "" %}
                 Information manquante
                 {% else %}
-                {{ address.billing_address }}
+                {{ addressBilling.address }}
                 {% endif %}
             </p>
             <h4>Code postal</h4>
             <p>
-                {% if address.billing_code == "" %}
+                {% if addressBilling.code == "" %}
                 Information manquante
                 {% else %}
-                {{ address.billing_code }}
+                {{ addressBilling.code }}
                 {% endif %}
             </p>
             <h4>Ville</h4>
             <p>
-                {% if address.billing_city == "" %}
+                {% if addressBilling.city == "" %}
                 Information manquante
                 {% else %}
-                {{ address.billing_city }}
+                {{ addressBilling.city }}
                 {% endif %}
             </p>
         </div>
@@ -93,7 +93,8 @@
             <li>
                 <p>
                     Modification adresses
-                    <a href="{% url 'address' %}">Modifier</a>
+                    <a href="{% url 'deliveryAddress' %}">Adresse de livraison</a>
+                    <a href="{% url 'billingAddress' %}">Adresse de facturation</a>
                 </p>
             </li>
             <li>
