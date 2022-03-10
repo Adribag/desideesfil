@@ -1,14 +1,28 @@
 {% extends 'main/_base.html' %}
 {% load static %}
-{% block title %}Des Idées Fil - Boutique{% endblock title %}
+{% block title %}Des Idées Fil - {{ article.name }}{% endblock title %}
 
 {% block content %}
 
-<h2>{{ article.name }}</h2>
-<img src="{{ article.image.url }}" alt="">
-<p>{{ article.description }}</p>
-<p>Quantité : {{ article.quantity }}</p>
-<p>Prix : {{ article.price }} €</p>
-<a href="">Commander</a>
+<h2 class="articleTitle">{{ article.name }}</h2>
+<section class="contentArticle">
+    <div>
+        <img src="{{ article.image.url }}" alt="">
+    </div>
+    <div class="articleDetails">
+        <h3>{{ article.name }}</h3>
+        <p>{{ article.description }}</p>
+        <p>Quantité : {{ article.quantity }}</p>
+        <p>Prix : {{ article.price }} €</p>
+        {% comment %} <a href="{% url 'shop:cart' %}">Commander</a> {% endcomment %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Commander</button>
+        </form>
+    </div>
+</section>
+
+
 
 {% endblock content %}

@@ -3,11 +3,14 @@
 {% block title %}Des Idées Fil - Boutique{% endblock title %}
 
 {% block content %}
-<h2>Boutique</h2>
-
-{% for article in shop %}
-<h4>{{ article.name }}</h4>
-<img src="{{ article.image.url }}" alt="">
-<a href="{% url 'shop:article' article.id %}">Détails</a>
-{% endfor %}
+<h2 class="shopTitle">Boutique</h2>
+<ul class="shopContent">
+    {% for article in shop %}
+    <li>
+        <h4>{{ article.name }}</h4>
+        <img src="{{ article.image.url }}" alt="">
+        <a href="{% url 'shop:article' article.id %}">Détails</a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock content %}

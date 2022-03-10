@@ -40,4 +40,13 @@
     .inscription{
         width: 80%;
     }
+    /* ARTICLE */
+    .contentArticle{
+        display: flex;
+        flex-direction: column;
+    }
+    .contentArticle div img{
+        display: block;
+        margin: 0 auto;
+    }
 }
