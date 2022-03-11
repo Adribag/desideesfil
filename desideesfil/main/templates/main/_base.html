@@ -28,6 +28,9 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li>
+                    <a href="{% url 'shop:cart' %}">Panier</a>
+                </li>
+                <li>
                     <a href="{% url 'profile' %}">Profil</a>
                 </li>
                 <li>

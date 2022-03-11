@@ -1,0 +1,31 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+{% block title %}Des Idées Fil - Panier{% endblock title %}
+
+{% block content %}
+
+<h2 class="articleTitle">Panier</h2>
+
+<p>{{ user.username }}</p>
+<p>{{ address.address }}</p>
+
+{% for orderLine in orderLines %}
+{% if orderLine.orderId.statusId.id == 1 %}
+<p>{{ orderLine.productId.name }}</p>
+<p>Etat de la commande : {{ orderLine.orderId.statusId.name }}</p>
+
+<a href="{% url 'shop:deleteArticle' orderLine.id %}">Supprimer</a>
+
+{% else %}
+<p>Votre panier est vide</p>
+
+{% endif %}
+
+{% endfor %}
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Commander</button>
+</form>
+
+
+{% endblock content %}
