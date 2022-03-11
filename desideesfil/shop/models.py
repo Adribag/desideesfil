@@ -23,6 +23,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     statusId = models.ForeignKey(Status, on_delete=models.CASCADE)
     userId = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    productId = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
 
 class OrderLine(models.Model):
     orderId = models.ForeignKey(Order, on_delete=models.CASCADE)

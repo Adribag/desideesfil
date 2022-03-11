@@ -18,3 +18,6 @@ class addCart(forms.ModelForm):
 
         self.fields['productId'].widget.attrs['value'] = product.id if product is not None else '0'
 
+
+class CartValidation(forms.Form):
+    validation = forms.BooleanField(widget=forms.HiddenInput, initial=True)
