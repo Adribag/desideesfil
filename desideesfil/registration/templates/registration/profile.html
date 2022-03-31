@@ -110,6 +110,7 @@
     <h2>Historique d'achats</h2>
     {% for order in orders  %}
     <p>{{ order.productId.name }}</p>
+    <p>Date : {{ order.date }}</p>
     {% endfor %}
 </section>
 {% else %}
