@@ -48,5 +48,15 @@
     .contentArticle div img{
         display: block;
         margin: 0 auto;
+        width: 100%
     }
+    /* PROFILE */
+    .profileBuyingButton{
+        padding: 1rem;
+    }
+    /* .profileBuying{
+        flex-direction: column;
+        margin-top: 5rem;
+        padding-bottom: 5rem;
+    } */
 }

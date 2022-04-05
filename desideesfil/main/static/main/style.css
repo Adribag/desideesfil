@@ -339,6 +339,30 @@ footer a:hover{
 .deleteTitle{
     text-align: center;
 }
+.profileBuyingTitle{
+    text-align: center;
+    margin: 3rem 0;
+}
+.profileBuying{
+    background-color: #FFFFFF;
+    margin: 2rem;
+    padding: 2rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.profileBuyingButton{
+    color: #7A688D;
+    background-color: #EFA7A7;
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.61);
+    font-weight: bold;
+}
 /* BOUTIQUE */
 .shopTitle{
     text-align: center;

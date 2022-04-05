@@ -6,7 +6,7 @@ class addCart(forms.ModelForm):
 
     class Meta:
         model = OrderLine
-        fields = [ 'productId']
+        fields = ['productId']
         widgets = {
             'productId': forms.HiddenInput(),
             # 'categoryId': forms.HiddenInput()

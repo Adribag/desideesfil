@@ -107,9 +107,21 @@
     </div>
 </section>
 <section>
-    <h2>Historique d'achats</h2>
+    <h2 class="profileBuyingTitle">Historique d'achats</h2>
     {% for order in orders  %}
-    <p>{{ order.productId.name }}</p>
+    <section class="profileBuying">
+        <div>
+            <p>{{ order.productId.name }}</p>
+            <p>Date : {{ order.date }}</p>
+        </div>
+        <div>
+            {% for article in product  %}
+                {% if order.productId.id == article.id %}
+                    <a href="{% url 'shop:article' article.id %}" class="profileBuyingButton">Commander de nouveau</a>
+                {% endif %}          
+            {% endfor %}
+        </div>       
+    </section>
     {% endfor %}
 </section>
 {% else %}

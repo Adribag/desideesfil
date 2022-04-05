@@ -29,8 +29,12 @@ def articleView(request, product_id):
         if form.is_valid():
                         
             # form.save()
-            
-            return redirect('shop:cart')
+
+            if(product.quantity == 0):
+                return render(request, 'shop/article.html', {'article': article, 'form': form})
+            else:
+                Product.objects.filter(id = product_id).update(quantity = product.quantity - 1)
+                return redirect('shop:cart')
     else:
         form = addCart(instance = product, productId = product)
 
@@ -72,14 +76,12 @@ def cart(request):
 @login_required
 def deleteArticle(request,id):
     orderLine = OrderLine.objects.get(id = id)
-
+    product = Product.objects.get(id = orderLine.productId.id)
     if request.method == 'POST':
        
-
-            print('delete')
-            orderLine.delete()
-
-            return redirect('shop:cart')
+        orderLine.delete()
+        Product.objects.filter(id = orderLine.productId.id).update(quantity = product.quantity + 1)
+        return redirect('shop:cart')
 
     context = {'orderLine': orderLine}
 
