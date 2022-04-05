@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 # from registration.models import User_address
 from registration.models import Address, AddressCategory
 from registration.forms import AddressForm, UserFormUpdate
-from shop.models import Order
+from shop.models import Order, Product
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def signup(request):
@@ -40,12 +41,14 @@ def profile(request):
     userAddressBilling= Address.objects.get(user_id = request.user.id, addressCategoryName_id = 2)
 
     getOrders = Order.objects.filter(userId = request.user.id, statusId = 2)
+    getProduct = Product.objects.all()
 
     context = {
         'user':request.user,
         'addressDelivery':userAddressDelivery,
         'addressBilling':userAddressBilling,
         'orders': getOrders,
+        'product': getProduct,
         }
     return render(request, 'registration/profile.html', context)
 

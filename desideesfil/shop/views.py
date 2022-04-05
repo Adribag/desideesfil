@@ -33,7 +33,6 @@ def articleView(request, product_id):
             if(product.quantity == 0):
                 return render(request, 'shop/article.html', {'article': article, 'form': form})
             else:
-                # product.update(quantity=product.quantity - 1)
                 Product.objects.filter(id = product_id).update(quantity = product.quantity - 1)
                 return redirect('shop:cart')
     else:
