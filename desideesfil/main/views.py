@@ -5,28 +5,31 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
+    """
+        Return the index page,
+        the main page of web site
+    """
     context = {
         'title': "Home",
         'user' : request.user
     }
     return render(request, 'main/index.html', context)
 
-
-# def contact(request):
-#     context = {
-#         'title': "Contact",
-#     }
-#     return render(request, 'main/contact.html', context)
-
-
 def prices(request):
+    """
+        Return the prices page, 
+        user can see different prices on this page
+    """
     context = {
         'title': "Prices",
     }
     return render(request, 'main/prices.html', context)
 
-
 def contact(request):
+    """
+        Return the contact form page,
+        user can send a message to the admin
+    """
     form = ContactForm()
     
     if request.method == 'POST':

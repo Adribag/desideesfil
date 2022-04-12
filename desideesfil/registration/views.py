@@ -11,13 +11,16 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signup(request):
+    """
+        Return the signup page,
+        with auto-complete of the adresses of user
+    """
     form = SignupForm()
     
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            # User_address.objects.create(user_id = id)
-            
+
             form.save()
             user = authenticate(username = form.cleaned_data['username'],
                                 password = form.cleaned_data['password1'])
@@ -33,10 +36,11 @@ def signup(request):
     context = {'form': form}
     return render(request, 'registration/signup.html', context)
 
-
 @login_required
 def profile(request):
-    # user = User.objects.all()
+    """
+        Return the profile page, with information of user
+    """
     userAddressDelivery = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 1)
     userAddressBilling= Address.objects.get(user_id = request.user.id, addressCategoryName_id = 2)
 
@@ -52,9 +56,11 @@ def profile(request):
         }
     return render(request, 'registration/profile.html', context)
 
-
 def addressUpdateDelivery(request):
-    # category = AddressCategory.objects.get(id = request.name.id)
+    """
+        Return the update delivery address page,
+        user can change or add delivery address
+    """
     userAddress = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 1 )
     if request.method == 'POST':
         formAddress = AddressForm(request.POST,instance=userAddress)
@@ -66,8 +72,11 @@ def addressUpdateDelivery(request):
 
     return render(request, 'registration/deliveryAddress.html', {'form': formAddress})
 
-
 def addressUpdateBilling(request):
+    """
+        Return the update billing address page,
+        user can change or add billing address
+    """
     userAddress = Address.objects.get(user_id = request.user.id, addressCategoryName_id = 2)
     if request.method == 'POST':
         formAddress = AddressForm(request.POST,instance=userAddress)
@@ -79,9 +88,11 @@ def addressUpdateBilling(request):
 
     return render(request, 'registration/billingAddress.html', {'form': formAddress})
 
-
 def userUpdate(request):
-
+    """
+        Return the update information of user page,
+        user can change basic information
+    """
     getUser = User.objects.get(id = request.user.id)
 
     if request.method == 'POST':
@@ -95,9 +106,11 @@ def userUpdate(request):
 
     return render(request, 'registration/user.html', {'form': userUpdate})
 
-
 def userDelete(request):
-
+    """
+        Return the delete account page,
+        user can delete account on this page
+    """
     getUser = User.objects.get(id = request.user.id)
     
     if request.method == 'POST':

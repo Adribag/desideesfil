@@ -67,7 +67,8 @@ header ul{
     display:flex;
     flex-direction: row;
     justify-content:flex-end;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
+    margin-right: 3rem;
 }
 header ul li{
     list-style-type: none;
@@ -75,6 +76,12 @@ header ul li{
 }
 header a{
     text-decoration: none;
+    color: #EFA7A7;
+}
+.arrow{
+    margin: 0 auto;
+    font-size: 3rem;
+    color: #7A688D;
 }
 /* SERVICES */
 .services{
@@ -198,6 +205,9 @@ footer a{
 footer a:hover{
     color: #EFA7A7;
     text-decoration: underline;
+}
+.socialmedia li a{
+    font-size: 2rem;
 }
 /* PRICES */
 .contentPrices{
@@ -438,4 +448,41 @@ footer a:hover{
     border-radius: 20px;
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.61);
     font-weight: bold;
+}
+/* CART */
+.cartAddress{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cartAddress div{
+    background-color: #FFFFFF;
+    padding: 2rem;
+    margin: 2rem;
+    border: 3px solid #713363;
+}
+.cartAddress div p:first-child{
+    font-weight: bold;
+}
+.cartAddress div p{
+    text-align: center;
+}
+.cartAddress div:last-child p{
+    display: flex;
+    justify-content: space-between;
+}
+.totalPrice{
+    background-color: #FFFFFF;
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid #EFA7A7;
+}
+.orderLine{
+    border: 3px solid #7A688D;
 }

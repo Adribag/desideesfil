@@ -5,27 +5,44 @@
 {% block content %}
 
 <h2 class="articleTitle">Panier</h2>
-
-<p>{{ user.username }}</p>
-<p>{{ address.address }}</p>
+<section class="cartAddress">
+    <div>
+        <p>Vos prénom & nom</p>
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+    <div>
+        <p>Votre adresse de livraison</p>
+        <p><span>Rue : </span><span>{{ address.address }}</span></p>
+        <p><span>Code Postal : </span><span>{{ address.code }}</span></p>
+        <p><span>Ville : </span><span>{{ address.city }}</span></p>
+    </div>
+</section>
 
 {% for orderLine in orderLines %}
-{% if orderLine.orderId.statusId.id == 1 %}
-<p>{{ orderLine.productId.name }}</p>
-<p>Etat de la commande : {{ orderLine.orderId.statusId.name }}</p>
-
-<a href="{% url 'shop:deleteArticle' orderLine.id %}">Supprimer</a>
-
-{% else %}
-<p>Votre panier est vide</p>
-
-{% endif %}
-
+    <section class="totalPrice orderLine">
+        <div>
+            <p>{{ orderLine.productId.name }}</p>
+            <p>Etat de la commande : {{ orderLine.orderId.statusId.name }}</p>
+            <p>Prix : {{ orderLine.productId.price }} €</p>
+        </div>
+        <a href="{% url 'shop:deleteArticle' orderLine.id %}">Supprimer</a>
+    </section>
 {% endfor %}
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Commander</button>
-</form>
 
+{% for orderLine in orderLines|slice:":1" %}
+    {% if orderLine.productID.name != "" %}
+    <div class="totalPrice">
+        <p>Total de la commande : {{ price }} €</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Commander</button>
+        </form>
+    </div>
+    {% endif %}
+{% endfor %}
+
+{% if price == 0 %}
+    <p class="totalPrice">Votre panier est vide</p>
+{% endif %}
 
 {% endblock content %}
