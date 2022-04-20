@@ -13,17 +13,10 @@ from registration.models import Address
 
 def shop(request):
     """
-    Return the view of shop page, with all articles in database "Product"
-    
-    :param request: The request is an HttpRequest object. It contains metadata about the request, such
-    as the HTTP method ("GET" or "POST"), the client’s IP address, the query parameters, etc
-    :return: The view of shop page, with all articles in database "Product"
-    """
-    """
         Return the view of shop page, with all articles
         in database "Product"
     """
-    shopView = Product.objects.all()   
+    shopView = Product.objects.all()  
     return render(request, 'shop/shop.html', {'shop':shopView})
 
 @login_required
@@ -74,13 +67,10 @@ def cart(request):
 
     if request.method == 'POST':
         for orderLine in orderLines:
-            
             getOrder = Order.objects.get(id = orderLine.orderId.id)
            
             if orderLine.orderId == getOrder:
-
                 Order.objects.filter(id = orderLine.orderId.id).update(statusId=F('statusId')+1)
-
                 orderLine.delete()
         
         return redirect('shop:cart')

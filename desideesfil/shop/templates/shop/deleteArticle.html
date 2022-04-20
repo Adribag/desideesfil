@@ -5,11 +5,12 @@
 {% block content %}
 
 <h2 class="articleTitle">Supprimer Article</h2>
-<h3>Voulez-vous supprimer {{orderLine.productId.name}} du panier ?</h3>
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Supprimer">
-</form>
-<a href="{% url 'shop:cart' %}">Annuler</a>
-
+<div class="totalPrice deleteArticle">
+    <h3>Voulez-vous supprimer {{orderLine.productId.name}} du panier ?</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer">
+    </form>
+    <a href="{% url 'shop:cart' %}">Annuler</a>
+</div>
 {% endblock content %}
